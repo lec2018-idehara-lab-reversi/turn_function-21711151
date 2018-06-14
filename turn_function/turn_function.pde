@@ -94,6 +94,7 @@ void mouseClicked()
 // (dx,dy) は、(-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1) で８方向
 int turnSub(int[][] b, int te, int x, int y, int dx, int dy)
 {
+  
   // 相手の石を数える変数
   int result = 0;
 
@@ -102,14 +103,17 @@ int turnSub(int[][] b, int te, int x, int y, int dx, int dy)
   y += dy;
 
   // そこが「相手の石の色である」あいだ、その数を数えながらその先に移動していく。
-  while(  )
-  {
-
+  while( b[x][y] == -te)
+  {  x += dx;
+  y += dy;
+    
+    result++;
+    
   }
 
   // 繰り返しを抜けるのは「相手の石でない」ものを発見したとき。このとき自分の石を見ていれば、ひっくり返せる。それまで
   // 自分の石でなければ、それまで何個数えていても、ひっくり返せるのは０個。
-  if( )
+  if(b[x][y] == te)
   {
     return result;
   }
@@ -122,6 +126,8 @@ int turnSub(int[][] b, int te, int x, int y, int dx, int dy)
 // 盤面 b に、色 te の石を (x,y) に置こうとしたとき、全部で相手の石が何個ひっくり返せるか数えて答える関数
 int turn(int[][] b, int te, int x, int y)
 {
+
+
   // 空いているかどうか、ここでチェックすることにする。
   // 置こうとしてる場所が AKI でないなら、一個もひっくり返せない。
   if( b[x][y] != AKI )
