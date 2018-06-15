@@ -140,6 +140,13 @@ int turn(int[][] b, int te, int x, int y)
 
   // (-1,-1) 方向の数を数える。
   result += turnSub(b, te, x, y, -1, -1);
+  result += turnSub(b, te, x, y, -1, 1);
+  result += turnSub(b, te, x, y, 1, -1);
+  result += turnSub(b, te, x, y, 1, 1);
+  result += turnSub(b, te, x, y, 1, 0);
+  result += turnSub(b, te, x, y, 0, 1);
+  result += turnSub(b, te, x, y, -1, 0);
+  result += turnSub(b, te, x, y, 0, -1);
   // あと７方向全部数えて足し合わせる。
 
   return result;
