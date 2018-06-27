@@ -66,14 +66,25 @@ void showBan(int[][] b)
       }
 
       // おける場所には赤丸
-      if( turn(ban, teban, x, y) != 0 )
+      if( 2<turn(ban, teban, x, y)  )
       {
         fill(255,0,0);
-        ellipse( round((x-0.5)*CELLSIZE), round((y-0.5)*CELLSIZE), 10,10);
-      }
+        ellipse( round((x-0.5)*CELLSIZE), round((y-0.5)*CELLSIZE), 30,30);
+        }else{if( 1<turn(ban, teban, x, y)  )
+      {
+        fill(255,0,0);
+        ellipse( round((x-0.5)*CELLSIZE), round((y-0.5)*CELLSIZE), 20,20);
+        }else{if( 0<turn(ban, teban, x, y)  )
+      {
+        fill(255,50,0);
+        ellipse( round((x-0.5)*CELLSIZE), round((y-0.5)*CELLSIZE), 10,10);}
+        }
+        }
+      
+    }
     }
   }
-}
+
 
 void draw()
 {
