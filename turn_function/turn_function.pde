@@ -115,9 +115,18 @@ void mouseClicked()
   println("(" + mouseX + "," + mouseY + ")");
   int gx = mouseX / CELLSIZE + 1;
   int gy = mouseY / CELLSIZE + 1;
-
-  ban[gx][gy] = teban;
-  teban = -teban;
+  
+  switch( turn(ban, teban, gx, gy)  )
+      {
+        
+        case 0:
+      teban *=1;
+        break;
+        
+        default:
+        ban[gx][gy] = teban;
+        teban = -teban;
+      }
 }
 
 // 盤面 b に、色 te の石を (x,y) に置こうとしたとき、(dx,dy) 方向に相手の石が何個ひっくり返せるか数えて答える関数
